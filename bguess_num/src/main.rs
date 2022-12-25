@@ -19,24 +19,33 @@ fn main() {
     let secret_number = rand::thread_rng().gen_range(1, 101);
     println!("神秘数字是: {}", secret_number);
 
-    println!("猜测一个数");
+    loop {
+        println!("猜测一个数");
 
-    // mut 可变变量
-    // :: 表示关联函数，类似java中的静态方法
-    let mut guess = String::new();
-    // 通过io:stdin() 进行逐行读取
-    io::stdin().read_line(&mut guess).expect("Can not read line!");
+        // mut 可变变量
+        // :: 表示关联函数，类似java中的静态方法
+        let mut guess = String::new();
+        // 通过io:stdin() 进行逐行读取
+        io::stdin().read_line(&mut guess).expect("Can not read line!");
 
-    // string类型 转换 number 类型
-    let guess: u32 = guess.trim().parse().expect("Please type a number!");
+        // string类型 转换 number 类型
+        let guess: u32 = match guess.trim().parse(){
+            Ok(num) => num,
+            Err(_) => continue,
+        };
 
-    println!("Your guess number is: {}", guess);
+        println!("Your guess number is: {}", guess);
 
-    // 比较大小
-    match guess.cmp(&secret_number) {
-        Ordering::Less => println!("Too small!"),
-        Ordering::Equal => println!("You win!"),
-        Ordering::Greater => println!("Too big!")       
+        // 比较大小
+        match guess.cmp(&secret_number) {
+            Ordering::Less => println!("Too small!"),
+            Ordering::Greater => println!("Too big!"),
+            Ordering::Equal => {
+                println!("You win!");
+                break;
+            }       
+        }
     }
+    
 }
  
