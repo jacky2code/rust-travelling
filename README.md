@@ -1,4 +1,6 @@
-# Rust Course
+# Rust Travelling
+
+
 
 ## 第一章 认识 Rust
 
@@ -373,6 +375,8 @@ fn add(i: i32, j: i32) -> i32 {
 - 管理依赖：在 Cargo.toml 中管理依赖，如：
 
   ```toml
+  [dependencies]
+  rand = "^0.7.0"
   ```
 
   
