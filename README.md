@@ -635,12 +635,63 @@ fn add(i: i32, j: i32) -> i32 {
     println!("{}, {}", x, y)
   }
   ```
-
   
 
 ### 3.4 注释
 
 ### 3.5 控制流程
-
+- if 表达式
+  - if 表达式允许您根据条件来执行不同的代码分支
+    - 这个条件必须是 bool 类型
+  - if 表达式中，与条件相关联的代码快就叫做分支（arm）
+  ```rust
+  fn main() {
+    let number = 3;
+    if number < 5 {
+      println!("condition was true");
+    } else {
+      println!("condition was false");
+    }
+  }
+  ```
+- Rust 的循环
+Rust 提供了3中循环，loop，while 和 for
+  - loop 循环
+    - loop 关键字告诉 Rust 反复的执行一块代码，直到你喊停
+    - 可以在 loop 循环中使用 break 关键字来告诉程序何时停止循环
+    ```rust
+    fn main() {
+      let mut counter = 0;
+      let result = loop {
+        counter += 1;
+        if counter == 10 {
+          break counter * 2;
+        }
+      };
+      println!("The result is : {}", result);)
+    }
+    ```
+  - while 条件循环
+  另外一种常见的循环模式是每次执行循环体之前都判断一次条件。 
+  while 条件循环位这种模式而生
+  ```rust
+  fn main() {
+    let mut number = 3;
+    while number != 0 {
+      println!("{}", number);
+      number = number - 1;
+    }
+    println!(LIFTOFF!!!);
+  }
+  ```
+  - 使用 for 循环遍历集合
+  ```rust
+  fn main() {
+    let a = [1, 2, 3];
+    for element in a.iter() {
+      println!("The value is : {}", element);
+    }
+  }
+  ```
 
 
