@@ -2,7 +2,7 @@
  * @Author: GKing
  * @Date: 2022-12-17 10:46:24
  * @LastEditors: GKing
- * @LastEditTime: 2022-12-25 11:21:23
+ * @LastEditTime: 2022-12-27 15:04:57
  * @Description: 
  * 生成一个 1 到 100 的随机数
  * 提示玩家输入一个猜测数字
@@ -47,5 +47,8 @@ fn main() {
         }
     }
     
+    let mut s1 = String::from("hello");
+    s1.push_str(", world!");
+
 }
  
